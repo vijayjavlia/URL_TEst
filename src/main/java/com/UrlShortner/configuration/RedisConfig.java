@@ -15,13 +15,13 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 @EnableCaching
 public class RedisConfig {
 
-//	@Bean
+	@Bean
 	public JedisConnectionFactory jedisConnectionFactory() {
 		return new JedisConnectionFactory(new RedisStandaloneConfiguration("167.86.78.200" ,6379),
 				JedisClientConfiguration.builder().connectTimeout(Duration.ofMillis(50 * 1000)).usePooling().build());
 	}
 
-//	@Bean
+	@Bean
 	public RedisTemplate<String, Object> redisTemplate() {
 		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();
 		redisTemplate.setConnectionFactory(jedisConnectionFactory());
